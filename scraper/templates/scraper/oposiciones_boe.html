@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Oposiciones Extraídas del BOE</h1>
+<ul>
+    {% for oposicion in oposiciones %}
+        <li>
+            <strong>{{ oposicion.titulo }}</strong> - Publicado el {{ oposicion.fecha_publicacion }}<br>
+            <a href="{{ oposicion.enlace }}" target="_blank">Ver convocatoria</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
