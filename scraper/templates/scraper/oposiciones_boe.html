@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Oposiciones Extraídas del BOE</h1>
-<ul>
-    {% for oposicion in oposiciones %}
-        <li>
-            <strong>{{ oposicion.titulo }}</strong> - Publicado el {{ oposicion.fecha_publicacion }}<br>
-            <a href="{{ oposicion.enlace }}" target="_blank">Ver convocatoria</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mt-4">
+    <h1 class="text-center">📜 Oposiciones Extraídas del BOE</h1>
+    
+    <div class="row">
+        {% for oposicion in oposiciones %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ oposicion.titulo }}</h5>
+                    <p class="card-text"><strong>📅 Publicado el:</strong> {{ oposicion.fecha_publicacion }}</p>
+                    <a href="{{ oposicion.enlace }}" class="btn btn-primary" target="_blank">🔗 Ver convocatoria</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
