@@ -10,12 +10,18 @@
             <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ oposicion.titulo }}</h5>
+                    <p class="card-text"><strong>🏛 Ministerio:</strong> {{ oposicion.ministerio }}</p>
                     <p class="card-text"><strong>📅 Publicado el:</strong> {{ oposicion.fecha_publicacion }}</p>
+                    <p class="card-text"><strong>📄 Descripción:</strong> {{ oposicion.descripcion|default:"❌ Sin descripción" }}</p>
+                    <p class="card-text"><strong>📌 Fuente:</strong> {{ oposicion.fuente }}</p>
                     <a href="{{ oposicion.enlace }}" class="btn btn-primary" target="_blank">🔗 Ver convocatoria</a>
                 </div>
             </div>
         </div>
+        {% empty %}
+        <p class="text-center">⚠️ No se encontraron oposiciones en la base de datos.</p>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
+
