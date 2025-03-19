@@ -3,6 +3,8 @@ from django.db import models
 #scraper boe
 class OposicionBOE(models.Model):
     titulo = models.CharField(max_length=255)  # Título de la oposición
+    ministerio = models.CharField(max_length=255, default="No especificado")
+    descripcion = models.TextField(default="Sin descripción")
     enlace = models.URLField(unique=True)  # Enlace al PDF de la convocatoria
     fecha_publicacion = models.DateField()  # Fecha en la que se publicó en el BOE
     fuente = models.CharField(max_length=100, default="BOE")  # Fuente de la convocatoria
